@@ -1,6 +1,5 @@
 #Add variable for cloud API token
 variable "hcloud_token" {}
-#variable "hertz_ssh_key" {}
 
 #provider info
 terraform {
@@ -17,10 +16,6 @@ provider "hcloud" {
 }
 
 
-#resource "hcloud_ssh_key" "hertz_main" {
-#  name       = "hertz_main"
-#  public_key = var.hertz_ssh_key
-#}
 
 # Creating the Rocky Linux server
 resource "hcloud_server" "redm01" {
@@ -40,47 +35,47 @@ resource "hcloud_server" "redm01" {
 #Firewall creation and rules
 
 resource "hcloud_firewall" "redm_firewall" {
-  name = "RedMServer"
-  rule {
-    direction = "in"
-    protocol  = "tcp"
-    port = "22"
-    source_ips = [
-      "72.212.51.3/32"
-    ]
-  }
-
-
-  rule {
-    direction = "in"
-    protocol = "tcp"
-    port  = "40120"
-    source_ips = [
-      "72.212.51.3/32"
-    ]
-  }
-
-  rule {
-    direction = "in"
-    protocol  = "tcp"
-    port      = "30120"
-    source_ips = [
-      "0.0.0.0/0",
-      "::/0"
-    ]
-  }
-
-  rule {
-    direction = "in"
-    protocol  = "udp"
-    port      = "30120"
-    source_ips = [
-      "0.0.0.0/0",
-      "::/0"
-    ]
-  }
-
-
+   name = "RedMServer"
+   rule {
+     direction = "in"
+     protocol  = "tcp"
+     port = "22"
+     source_ips = [
+       "72.212.51.3/32"
+     ]
+   }
+ 
+ 
+   rule {
+     direction = "in"
+     protocol = "tcp"
+     port  = "40120"
+     source_ips = [
+       "72.212.51.3/32"
+     ]
+   }
+ 
+   rule {
+     direction = "in"
+     protocol  = "tcp"
+     port      = "30120"
+     source_ips = [
+       "0.0.0.0/0",
+       "::/0"
+     ]
+   }
+ 
+   rule {
+     direction = "in"
+     protocol  = "udp"
+     port      = "30120"
+     source_ips = [
+       "0.0.0.0/0",
+       "::/0"
+     ]
+   }
+ 
+ 
 }
 
 
