@@ -1,3 +1,18 @@
+
+
+terraform {
+  required_providers {
+    hcloud = {
+      source = "hetznercloud/hcloud"
+      version = "1.39.0"
+    }
+  }
+}
+
+provider "hcloud" {
+  token = var.hcloud_token
+}
+
 resource "hcloud_firewall" "redm_firewall" {
   name = var.firewall_name
 
@@ -6,7 +21,7 @@ resource "hcloud_firewall" "redm_firewall" {
     protocol    = "tcp"
     port        = "22"
     source_ips  = [
-      "72.212.51.3/32"
+      var.home_ip
     ]
   }
 
@@ -15,7 +30,7 @@ resource "hcloud_firewall" "redm_firewall" {
     protocol    = "tcp"
     port        = "40120"
     source_ips  = [
-      "72.212.51.3/32"
+      var.home_ip
     ]
   }
 
