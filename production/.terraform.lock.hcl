@@ -2,7 +2,8 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/hetznercloud/hcloud" {
-  version = "1.39.0"
+  version     = "1.39.0"
+  constraints = "1.39.0"
   hashes = [
     "h1:CSo1Bl3eKS0Fl3ORGr9M0VqNSJ0NYAQ/CxZEzc5HevU=",
     "zh:0b1cef3a2bf213c8c0df0973c21d494ce5e554db3d8d33bd9b1727b50f4a245c",
