@@ -11,7 +11,7 @@ provider "hcloud" {
   token = var.hcloud_token
 }
 
-resource "hcloud_server" "gameserver" {
+resource "hcloud_server" "mysql" {
   name         = var.server_name
   image        = var.image
   server_type  = var.server_type
@@ -20,7 +20,7 @@ resource "hcloud_server" "gameserver" {
   ssh_keys     = var.ssh_keys
 
   public_net {
-    ipv4_enabled = true
+    ipv4_enabled = false
     ipv6_enabled = true
   }
 
@@ -29,7 +29,5 @@ resource "hcloud_server" "gameserver" {
     ip         = var.internal_ip 
   }
 }
-
-
 
 

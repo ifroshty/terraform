@@ -33,11 +33,6 @@ variable "firewall_ids" {
   description = "Firewall for the server"
 }
 
-variable "ipv4_address" {
-  type       = string
-  description = "Assign already created IPv4 address"
-}
-
 variable "private_network_id" {
   type        = string
   description = "private network id"
