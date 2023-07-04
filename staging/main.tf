@@ -44,7 +44,7 @@ module "firewall_redm"  {
 module "firewall_mysql"  {
   source = "/opt/terraform/staging/modules/firewall_mysql"
   firewall_mysql_name = "firewall_mysql"
-  home_ip = var.home_ip
+  #home_ip = var.home_ip
   server_redm_priv_ip = var.server_redm_priv_ip
   hcloud_token  = var.hcloud_token
   private_network_id = hcloud_network.staging.id

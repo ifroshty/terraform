@@ -18,7 +18,7 @@ resource "hcloud_firewall" "mysql_firewall" {
     direction       = "in"
     protocol        = "tcp"
     port            = "22"
-    source_ips      = [var.home_ip]
+    source_ips      = [var.server_redm_priv_ip] 
     destination_ips = []  # Allow any destination IP
   }
 
